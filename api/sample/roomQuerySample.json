@@ -1,0 +1,25 @@
+{
+	"tables": ["ROOMS"],
+	"conditions": {
+		"asso": "AND",
+		"cond": [
+			{
+				"asso": "AND",
+				"op": "like",
+				"left": "ROOMS.roomType",
+				"right": "'%Suite%'"
+			}
+		]
+	},
+	"orderBy": [
+		{
+			"attr": "ROOMS.hotelName",
+			"asc": true
+		},
+		{
+			"attr": "ROOMS.roomNumber",
+			"asc": true
+		}
+	],
+	"limit": 10
+}

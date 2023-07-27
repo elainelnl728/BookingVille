@@ -1,0 +1,29 @@
+{
+  "name": "bookingvalley-infra",
+  "version": "0.1.0",
+  "description": "BookingValley AWS infrastructure code.",
+  "bin": {
+    "infra": "bin/infra.js"
+  },
+  "scripts": {
+    "clean": "rm -rf build",
+    "build": "tsc",
+    "release": "npm run clean && npm run build",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "@types/source-map-support": "^0.5.3",
+    "monocdk": "^1.95.1",
+    "prettier": "2.2.1",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "1.95.1",
+    "@types/source-map": "^0.5.2",
+    "source-map-support": "^0.5.16"
+  }
+}

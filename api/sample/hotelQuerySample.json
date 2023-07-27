@@ -1,0 +1,31 @@
+{
+	"tables": ["HOTELS", "ROOMS"],
+	"conditions": {
+		"asso": "AND",
+		"cond": [
+			{
+				"asso": "AND",
+				"op": "=",
+				"left": "HOTELS.hotelId",
+				"right": "ROOMS.hotelId"
+			},
+			{
+				"asso": "AND",
+				"op": "like",
+				"left": "ROOMS.roomName",
+				"right": "'Small Double Room'"
+			}
+		]
+	},
+	"orderBy": [
+		{
+			"attr": "HOTELS.hotelName",
+			"asc": true
+		},
+		{
+			"attr": "ROOMS.roomNumber",
+			"asc": true
+		}
+	],
+	"limit": 10
+}

@@ -1,0 +1,49 @@
+{
+	"tables": ["ROOMS", "RESERVATIONS"],
+	"conditions": {
+		"asso": "AND",
+		"cond": [{
+			"asso": "AND",
+			"cond": [{
+				"asso": "AND",
+				"op": "=",
+				"left": "RESERVATIONS.customerId",
+				"right": "'00780ef0-4183-4cc6-a86b-0741c6a97d7f'"
+			}, {
+				"asso": "AND",
+				"op": "=",
+				"left": "ROOMS.roomId",
+				"right": "RESERVATIONS.roomId"
+			}]
+		}, {
+			"asso": "AND",
+			"cond": [{
+				"asso": "OR",
+				"cond": [{
+					"asso": "AND",
+					"op": ">=",
+					"left": "RESERVATIONS.checkInDate",
+					"right": "'2021-05-02'"
+				}, {
+					"asso": "AND",
+					"op": "<",
+					"left": "RESERVATIONS.checkInDate",
+					"right": "'2021-05-07'"
+				}]
+			}, {
+				"asso": "OR",
+				"cond": [{
+					"asso": "AND",
+					"op": ">",
+					"left": "RESERVATIONS.checkOutDate",
+					"right": "'2021-05-02'"
+				}, {
+					"asso": "AND",
+					"op": "<=",
+					"left": "RESERVATIONS.checkOutDate",
+					"right": "'2021-05-07'"
+				}]
+			}]
+		}]
+	}
+}

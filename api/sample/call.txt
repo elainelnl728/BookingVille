@@ -1,0 +1,70 @@
+// Query reservation
+function componentDidMount() {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+				"roomType": "Your Room Type",
+				"hotelName": "Hilton Waikiki Beach",
+			})
+    };
+
+    fetch('https://zmtiry43m6.execute-api.us-west-2.amazonaws.com/v1/reserve', requestOptions)
+        .then(response => {
+
+            // check for error response
+            if (!response.ok) {
+                // get error message from body or default to response status
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
+            }
+
+						// succeeded
+            const data = await response.json();
+
+						// display data in UI.
+						// ...
+
+        })
+        .catch(error => {
+            this.setState({ errorMessage: error.toString() });
+            console.error('There was an error!', error);
+        });
+}
+// Make reservation
+function componentDidMount() {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+					"customerId": "testCustomer",
+					"hotelName": "Hilton Waikiki Beach",
+					"roomType": "Mountain View Suite",
+					"checkInDate": "2021-4-23",
+					"checkOutDate": "2021-4-25",
+					"reserveCount": 1
+				})
+    };
+
+    fetch('https://zmtiry43m6.execute-api.us-west-2.amazonaws.com/v1/reserve', requestOptions)
+        .then(response => {
+    		// check for error response
+					if (!response.ok) {
+							// get error message from body or default to response status
+							const error = (data && data.message) || response.status;
+							return Promise.reject(error);
+					}
+
+					// succeeded
+					const data = await response.json();
+
+					// display data in UI.
+					// ...
+
+			})
+			.catch(error => {
+					this.setState({ errorMessage: error.toString() });
+					console.error('There was an error!', error);
+			});
+
+}
